@@ -1,0 +1,75 @@
+﻿@model student_database.Models.Student
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Data Siswa</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="control-label col-md-2" for="student_id">ID</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="student_id" name="student_id" type="text" value="">
+            <span class="field-validation-valid text-danger" data-valmsg-for="student_id" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="nama">Nama Lengkap</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="nama" name="nama" type="text" value="">
+            <span class="field-validation-valid text-danger" data-valmsg-for="nama" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="umur">Umur</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" data-val="true" data-val-number="The field umur must be a number." data-val-required="The umur field is required." id="umur" name="umur" type="number" value="">
+            <span class="field-validation-valid text-danger" data-valmsg-for="umur" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="alamat">Alamat</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="alamat" name="alamat" type="text" value="">
+            <span class="field-validation-valid text-danger" data-valmsg-for="alamat" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="telepon">Nomor Telepon</label>
+        <div class="col-md-10">
+            <input class="form-control text-box single-line" id="telepon" name="telepon" type="text" value="">
+            <span class="field-validation-valid text-danger" data-valmsg-for="telepon" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}
+
+
+<div>
+    <a href="/Student" class="btn btn-primary btn-sm">Back to List</a>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
